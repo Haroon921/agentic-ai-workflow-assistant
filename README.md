@@ -1,34 +1,39 @@
-# AI & Data Solutions Portfolio
+# Agentic AI Workflow Assistant
 
-This repository contains practical prototypes for agentic AI and Microsoft data-platform scenarios.
+This is a simple **Agentic AI Workflow Assistant** built with **LangGraph** and **Azure OpenAI** for a retail scenario.
 
-## Projects
+## 📌 What it does
 
-### Modernize360
+- Accepts a goal (e.g., "Restock low inventory items")
+- Uses a planner node (LLM) to break the goal into steps
+- Executes tasks (mock API calls)
+- Runs the flow step-by-step with LangGraph
 
-Modernize360 is a professional Microsoft Fabric App for data-estate modernization planning. It helps customers and partners assess database workloads, prioritize EOS risk, recommend Azure target platforms, sequence migration waves, and communicate the executive business case.
+## 🚀 How to run
 
-[Explore Modernize360](modernize360/README.md)
+1- Clone the repo
+```bash
+git clone https://github.com/YOUR-USERNAME/agentic-ai-workflow-assistant.git
+cd agentic-ai-workflow-assistant
 
-![Modernize360 Executive Overview](modernize360/docs/modernize360-overview.png)
-
-### Agentic AI Workflow Assistant
-
-A lightweight LangGraph and Azure OpenAI prototype that turns a user goal into a planned and executed workflow for a retail scenario.
-
-#### Run the assistant
-
-```powershell
+2 - Set up a virtual environment
 python -m venv venv
+# Activate:
+# Windows:
 venv\Scripts\activate
-pip install -r requirement.txt.txt
+# Mac/Linux:
+source venv/bin/activate
+
+3 - Install dependencies
+pip install -r requirements.txt
+
+4 - Set your environment variables
+# On Windows PowerShell
+setx OPENAI_API_KEY "YOUR_AZURE_OPENAI_KEY"
+setx OPENAI_API_BASE "YOUR_AZURE_OPENAI_ENDPOINT"
+setx AZURE_OPENAI_DEPLOYMENT "YOUR_DEPLOYMENT_NAME"
+setx OPENAI_API_VERSION "2024-02-15-preview"
+
+5 - Run the agent
 python main.py
-```
 
-Configure the Azure OpenAI environment values required by `main.py` before running the assistant. Do not commit credentials or local `.env` files.
-
-## Repository principles
-
-- Keep credentials and tenant-specific configuration out of source control.
-- Treat included sample data and modeled business values as illustrative.
-- Validate each project using the commands documented in its own README.
