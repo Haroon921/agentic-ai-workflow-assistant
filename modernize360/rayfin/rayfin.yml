@@ -1,0 +1,34 @@
+id: modernize360
+name: modernize360
+version: 1.0.0
+services:
+  auth:
+    enabled: true
+    fabric:
+      enabled: true
+      externalEntraExchange: true
+    password:
+      enabled: false
+    allowedRedirectUris:
+      - http://localhost:5173
+      - http://localhost:5174
+      - http://127.0.0.1:5174
+      - http://127.0.0.1:5173
+      - https://tough-knoll-6dd6f2eeff-westcentralus.webapp.msit.fabricapps.net
+  data:
+    enabled: false
+    path: packages/data
+    buildCommand: npm run build
+  staticHosting:
+    enabled: true
+    path: packages/frontend
+    folder: dist
+    buildCommand: npm run build:fabric
+    indexDocument: index.html
+    assetAccess: protected
+    embedded:
+      only: false
+  storage:
+    enabled: false
+  functions:
+    enabled: false
